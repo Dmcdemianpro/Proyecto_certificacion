@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container">
+	    <header>
+			<div th:include="header/menu.html"></div>
+			<h1>Listado de peliculas</h1>
+		</header>
+	   <table class="table">
+		   <tr class="table-dark">
+			  
+				   <td>id_calificacion</td>
+				   <td>id_pelicula</td>
+				   <td>id_usuario</td>
+				   <td>puntuacion</td>
+				   <td>resena</td>
+			</tr>
+			<tbody>
+				<tr th:each="calificaciones : ${calificaciones}">
+					
+						<td th:text="${calificaciones.id_calificacion}"></td>
+						<td th:text="${calificaciones.id_pelicula}"></td>					
+						<td th:text="${calificaciones.id_usuario}"></td>
+						<td th:text="${calificaciones.puntuacion}"></td>
+						<td th:text="${calificaciones.resena}"></td>
+				
+				</tr>
+			</tbody>		   
+	   </table>
+	   
+	   </div>
+</body>
+</html>

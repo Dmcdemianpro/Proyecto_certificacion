@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Incluir enlaces a Bootstrap y otros recursos -->
+</head>
+<body>
+    <div class="container">
+        <h1>Detalle de Película</h1>
+        <h2>Título de la Película</h2>
+        <p>Año de Lanzamiento: <span id="year">YYYY</span></p>
+        <p>Género: <span id="genre">Género</span></p>
+        <h2>Valoración Promedio</h2>
+        <p>Promedio: <span id="promedio">X.X</span></p>
+        <h2>Valorar Película</h2>
+        <form action="/valorarPelicula" method="post">
+            <input type="hidden" name="idPelicula" value="ID_PELICULA">
+            <input type="number" name="valoracion" min="0" max="5" step="0.5" placeholder="Valoración">
+            <button type="submit">Valorar</button>
+        </form>
+    </div>
+</body>
+</html>

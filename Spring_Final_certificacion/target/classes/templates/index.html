@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Películas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Listado de Películas</h1>
+        <div class="d-flex justify-content-center mb-3">
+            <form action="/api/v1/peliculas" method="get" class="form-inline">
+                <input type="text" name="busqueda" class="form-control mr-2" placeholder="Buscar película...">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </form>
+        </div>
+        <ul class="list-group">
+            <!-- Utilizando Thymeleaf para iterar sobre las películas -->
+            <li th:each="pelicula : ${peliculas}" class="list-group-item">
+                <h5 th:text="${pelicula.titulo}"></h5>
+                <p th:text="${'Anio_de_lanzamiento: ' + pelicula.anioLanzamiento}"></p>
+                <p th:text="${'genero: ' + pelicula.genero.nombreGenero}"></p>
+                <a th:href="@{/api/v1/peliculas/{id}/calificaciones(id=${pelicula.idPelicula})}" class="btn btn-primary">Ver Calificaciones</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
+
